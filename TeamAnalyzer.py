@@ -6,40 +6,31 @@ types = ["bug","dark","dragon","electric","fairy","fight",
     "fire","flying","ghost","grass","ground","ice","normal",
     "poison","psychic","rock","steel","water"]
 
-pokedex_numbers = sys.argv[1:]
+if len(sys.argv) < 6:
+    print("You must give me six Pokemon to analyze!")
+    sys.exit()
 
-if len(pokedex_numbers) != 6:
-    print("Error: Please provide exactly 6 Pokedex numbers.")
-    sys.exit(1)
+team = []
+for i, arg in enumerate(sys.argv):
+    if i == 0:
+        continue
 
+    pokemon_id = int(arg)
+    connection = sqlite3.connect("pokemon.sqlite")
+    cursor = connection.cursor()
 
-pokedex_numbers = [int(n) for n in pokedex_numbers]
+    cursor.execute("SELECT * FROM imported_pokemon_data WHERE pokedex_number=?", (pokemon_id,))
+    pokemon = cursor.fetchone()
 
-# Loop through each Pokedex number and analyze the Pokemon
-for pokedex_number in pokedex_numbers:
-    # Your code to analyze the Pokemon goes here
+    print(f"Analyzing {pokemon[1]}")
+    for j, t in enumerate(types):
+        if pokemon[3 + j] != "":
+            if float(pokemon[3 + j]) > 1:
+                print(f"{t.capitalize()} is weak against {pokemon[1]}")
+            elif float(pokemon[3 + j]) < 1:
+                print(f"{t.capitalize()} is strong against {pokemon[1]}")
 
-    team = []
-    for i, arg in enumerate(sys.argv):
-        if i == 0:
-            continue
-
-        pokemon_id = int(arg)
-        connection = sqlite3.connect("pokemon.sqlite")
-        cursor = connection.cursor()
-
-        cursor.execute("SELECT * FROM imported_pokemon_data WHERE pokedex_number=?", (pokemon_id,))
-        pokemon = cursor.fetchone()
-
-        print(f"Analyzing {pokemon[1]}")
-        for j, t in enumerate(types):
-            if pokemon[3 + j] != "":
-                if float(pokemon[3 + j]) > 1:
-                    print(f"{t.capitalize()} is weak against {pokemon[1]}")
-                elif float(pokemon[3 + j]) < 1:
-                    print(f"{t.capitalize()} is strong against {pokemon[1]}")
-
-        connection.close()
+    connection.close()
 
 
 answer = input("Would you like to save this team? (Y)es or (N)o: ")
