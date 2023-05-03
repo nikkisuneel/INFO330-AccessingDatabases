@@ -11,6 +11,7 @@ if len(sys.argv) < 6:
     sys.exit()
 
 team = []
+
 for i, arg in enumerate(sys.argv):
     if i == 0:
         continue
@@ -22,13 +23,23 @@ for i, arg in enumerate(sys.argv):
     cursor.execute("SELECT * FROM imported_pokemon_data WHERE pokedex_number=?", (pokemon_id,))
     pokemon = cursor.fetchone()
 
-    print(f"Analyzing {pokemon[1]}")
+    type1_name = pokemon[2]
+    type2_name = ""
+    if pokemon[3]:
+        type2_name = pokemon[3]
+
+    strengths = []
+    weaknesses = []
+
     for j, t in enumerate(types):
         if pokemon[3 + j] != "":
             if float(pokemon[3 + j]) > 1:
-                print(f"{t.capitalize()} is weak against {pokemon[1]}")
+                weaknesses.append(t)
             elif float(pokemon[3 + j]) < 1:
-                print(f"{t.capitalize()} is strong against {pokemon[1]}")
+                strengths.append(t)
+
+    print(f"Analyzing {pokemon[1]}")
+    print(f"{pokemon[1]} ({type1_name} {type2_name}) is strong against {strengths} but weak against {weaknesses}")
 
     connection.close()
 
