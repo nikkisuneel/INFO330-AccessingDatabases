@@ -37,7 +37,7 @@ Professor Oak sighed, and turned his attention back to the Python code in front 
 
 ## Goals
 
-You need to write some Java or Python code to access the SQLite Pokemon database in pokemon.db. Your program will help build out Pokemon teams, by helping trainers choose which Pokemon are good against which other kinds of Pokemon they face. Remeber we are giving you buggy code and you must debug it to create this output. 
+You need to write some Java or Python code to access the SQLite Pokemon database in pokemon.db. Your program will help build out Pokemon teams, by helping trainers choose which Pokemon are good against which other kinds of Pokemon they face. Remember we are giving you buggy code and you must debug it to create this output. 
 
 This program must take a set of six command-line parameters, which will be Pokedex numbers, and analyze how well they do against all the different types of Pokemon. It will then ask the user if this team is worth saving, and if so, write the contents to the "teams" table. For example:
 
