@@ -23,7 +23,7 @@ for i, arg in enumerate(sys.argv):
     cursor.execute("SELECT * FROM imported_pokemon_data WHERE pokedex_number=?", (pokemon_id,))
     pokemon = cursor.fetchone()
 
-    name = pokemon[1]
+    name = pokemon[29]
     type1 = types[int(pokemon[2])-1]
     type2 = types[int(float(pokemon[18])-1)] if pokemon[18] != '' else ''
     strengths = []
@@ -36,6 +36,8 @@ for i, arg in enumerate(sys.argv):
                 weaknesses.append(t)
 
     print(f"Analyzing {i}\n{name} ({type1} {type2}) is strong against {strengths} but weak against {weaknesses}")
+
+
     connection.close()
 
 
@@ -55,3 +57,5 @@ if answer.upper() == "Y" or answer.upper() == "YES":
     print("Saving " + teamName + " ...")
 else:
     print("Bye for now!")
+
+
