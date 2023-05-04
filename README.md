@@ -1,6 +1,6 @@
 # Greetings!
 
-In this homework assignment, you must write some code (either Python or Java) to access the SQLite database and work with it and fix the bugs in the existing program.
+In this homework assignment, you must write some code to access the SQLite database and work with it and fix the bugs in the existing program.
 
 ## Background
 
@@ -33,11 +33,9 @@ Thus, when Ash came by the next day, Professor Oak was in a pretty bad mood.
 
 Ash's voice faded as he ran down the path to go find Team Rocket.
 
-Professor Oak sighed, and turned his attention back to the Python code in front of him. "Hmmm.... maybe if I use Java instead...." Then, sipping from his coffee cup, he chuckled at his bad joke and wondered what to do next.
-
 ## Goals
 
-You need to write some Java or Python code to access the SQLite Pokemon database in pokemon.db. Your program will help build out Pokemon teams, by helping trainers choose which Pokemon are good against which other kinds of Pokemon they face. Remember we are giving you buggy code and you must debug it to create this output. 
+You need to write some Python code to access the SQLite Pokemon database in pokemon.db. Your program will help build out Pokemon teams, by helping trainers choose which Pokemon are good against which other kinds of Pokemon they face. Remember we are giving you buggy code and you must debug it to create this output. 
 
 This program must take a set of six command-line parameters, which will be Pokedex numbers, and analyze how well they do against all the different types of Pokemon. It will then ask the user if this team is worth saving, and if so, write the contents to the "teams" table. For example:
 
