@@ -1,6 +1,6 @@
 # Greetings!
 
-In this homework assignment, you must write some code (either Python or Java) to access the SQLite database and work with it.
+In this homework assignment, you must write some code (either Python or Java) to access the SQLite database and work with it and fix the bugs in the existing program.
 
 ## Background
 
@@ -37,7 +37,7 @@ Professor Oak sighed, and turned his attention back to the Python code in front 
 
 ## Goals
 
-You need to write some Java or Python code to access the SQLite Pokemon database in pokemon.db. Your program will help build out Pokemon teams, by helping trainers choose which Pokemon are good against which other kinds of Pokemon they face.
+You need to write some Java or Python code to access the SQLite Pokemon database in pokemon.db. Your program will help build out Pokemon teams, by helping trainers choose which Pokemon are good against which other kinds of Pokemon they face. Remeber we are giving you buggy code and you must debug it to create this output. 
 
 This program must take a set of six command-line parameters, which will be Pokedex numbers, and analyze how well they do against all the different types of Pokemon. It will then ask the user if this team is worth saving, and if so, write the contents to the "teams" table. For example:
 
@@ -66,7 +66,6 @@ Note that this version of the Pokemon databases has a few views that you may fin
 
 You are free to use either Python or Java for this assignment; a Python starter is in the Python directory, and a Java starter is in the Java directory. (Python is recommended.)
 
-> **HINT (Java):** Remember, if you use Java, you must have the SQLite driver on the *classpath* when you run the code; use the following to make that happen: `java -classpath .:sqlite-jdbc-3.41.2.1.jar TeamAnalyzer` for macOS or Linux, `java -classpath .;sqlite-jdbc-3.41.2.1.jar TeamAnalyzer` for Windows. (You can also use the more modern `java -classpath sqlite-jdbc-3.41.2.1.jar TeamAnalyzer.java` and pretend Java is a source-interpreted language like Python, but doing so means you will have to learn how to use compiled code some other day.)
 
 ## Extra credit
 
