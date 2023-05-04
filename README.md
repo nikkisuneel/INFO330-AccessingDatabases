@@ -64,7 +64,6 @@ A Pokemon is "good" against another type if its "against_" column is greater tha
 
 Note that this version of the Pokemon databases has a few views that you may find helpful.
 
-You are free to use either Python or Java for this assignment; a Python starter is in the Python directory, and a Java starter is in the Java directory. (Python is recommended.)
 
 
 ## Extra credit
