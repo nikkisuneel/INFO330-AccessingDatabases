@@ -24,8 +24,8 @@ for i, arg in enumerate(sys.argv):
     pokemon = cursor.fetchone()
 
     name = pokemon[29]
-    type1 = types[int(pokemon[2])-1]
-    type2 = types[int(float(pokemon[18])-1)] if pokemon[18] != '' else ''
+    type1 = pokemon[35]
+    type2 = pokemon[36]
     strengths = []
     weaknesses = []
     for j, t in enumerate(types):
