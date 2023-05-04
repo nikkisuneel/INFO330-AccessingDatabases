@@ -23,23 +23,20 @@ for i, arg in enumerate(sys.argv):
     cursor.execute("SELECT * FROM imported_pokemon_data WHERE pokedex_number=?", (pokemon_id,))
     pokemon = cursor.fetchone()
 
-    type1_name = pokemon[2]
-    type2_name = ""
-    if pokemon[3]:
-        type2_name = pokemon[3]
-
+    name = pokemon[29]
+    type1 = types[int(pokemon[2])-1]
+    type2 = types[int(float(pokemon[18])-1)] if pokemon[18] != '' else ''
     strengths = []
     weaknesses = []
-
     for j, t in enumerate(types):
         if pokemon[3 + j] != "":
             if float(pokemon[3 + j]) > 1:
-                weaknesses.append(t)
-            elif float(pokemon[3 + j]) < 1:
                 strengths.append(t)
+            elif float(pokemon[3 + j]) < 1:
+                weaknesses.append(t)
 
-    print(f"Analyzing {pokemon[1]}")
-    print(f"{pokemon[1]} ({type1_name} {type2_name}) is strong against {strengths} but weak against {weaknesses}")
+    print(f"Analyzing {i}\n{name} ({type1} {type2}) is strong against {strengths} but weak against {weaknesses}")
+
 
     connection.close()
 
